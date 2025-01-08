@@ -8,6 +8,7 @@ import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 
+@Entity
 public class Ride {
 
     @Id

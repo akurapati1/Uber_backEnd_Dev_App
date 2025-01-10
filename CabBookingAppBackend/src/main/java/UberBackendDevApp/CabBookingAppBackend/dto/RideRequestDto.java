@@ -11,24 +11,20 @@ import org.locationtech.jts.geom.Point;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class RideRequestDto {
 
     private Long id;
 
-    private Point pickupLocation;
-
-    private Point dropOffLocation;
+    private PointDto pickupLocation;
+    private PointDto dropOffLocation;
+    private PaymentMethod paymentMethod;
 
     private LocalDateTime requestedTime;
 
-    private Rider rider;
-
-    private PaymentMethod paymentmethod;
+    private RiderDto rider;
 
     private RideRequestStatus rideRequestStatus;
-
-
-
 }
+

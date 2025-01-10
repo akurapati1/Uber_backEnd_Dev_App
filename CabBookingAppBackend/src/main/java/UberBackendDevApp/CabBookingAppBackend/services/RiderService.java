@@ -4,9 +4,11 @@ import UberBackendDevApp.CabBookingAppBackend.dto.DriverDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RiderDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface RiderService {
 
     RideRequestDto requestRide(RideRequestDto rideRequestDto);

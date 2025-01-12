@@ -26,5 +26,11 @@ public class RideRequestDto {
     private RiderDto rider;
 
     private RideRequestStatus rideRequestStatus;
+
+    public String toString(){
+        String s= "Pickup Location: "+ pickupLocation;
+
+        return s;
+    }
 }
 

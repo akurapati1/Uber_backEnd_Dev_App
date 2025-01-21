@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RiderServiceImpl implements RiderService {
 
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper=new ModelMapper();
 
     private static final Logger log = LoggerFactory.getLogger(RiderServiceImpl.class);
 

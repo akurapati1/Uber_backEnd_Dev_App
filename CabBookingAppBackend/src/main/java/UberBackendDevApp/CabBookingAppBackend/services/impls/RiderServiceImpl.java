@@ -1,12 +1,12 @@
 package UberBackendDevApp.CabBookingAppBackend.services.impls;
 
+import UberBackendDevApp.CabBookingAppBackend.configs.MapperConfig;
 import UberBackendDevApp.CabBookingAppBackend.dto.DriverDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
 import UberBackendDevApp.CabBookingAppBackend.services.RiderService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,14 +18,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RiderServiceImpl implements RiderService {
 
-    private ModelMapper modelMapper=new ModelMapper();
+    private final MapperConfig mapperConfig;
 
     private static final Logger log = LoggerFactory.getLogger(RiderServiceImpl.class);
 
     @Override
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {
         System.out.println("Dta received: "+ rideRequestDto);
-        RideRequest rideRequest = modelMapper.map(rideRequestDto, RideRequest.class);
+        RideRequest rideRequest = mapperConfig.modelMapper().map(rideRequestDto, RideRequest.class);
         log.info(rideRequest.toString());
         return null;
     }

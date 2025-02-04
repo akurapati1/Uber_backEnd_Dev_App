@@ -1,12 +1,10 @@
 package UberBackendDevApp.CabBookingAppBackend.dto;
 
-import UberBackendDevApp.CabBookingAppBackend.entities.Rider;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentMethod;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.RideRequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 
@@ -27,10 +25,6 @@ public class RideRequestDto {
 
     private RideRequestStatus rideRequestStatus;
 
-    public String toString(){
-        String s= "Pickup Location: "+ pickupLocation;
-
-        return s;
-    }
 }
+
 

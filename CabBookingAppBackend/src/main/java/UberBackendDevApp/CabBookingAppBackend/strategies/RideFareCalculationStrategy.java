@@ -1,7 +1,8 @@
 package UberBackendDevApp.CabBookingAppBackend.strategies;
 
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
+import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
 
 public interface RideFareCalculationStrategy {
-    double calculateFare(RideRequestDto rideRequestDto);
+    double calculateFare(RideRequest rideRequest);
 }

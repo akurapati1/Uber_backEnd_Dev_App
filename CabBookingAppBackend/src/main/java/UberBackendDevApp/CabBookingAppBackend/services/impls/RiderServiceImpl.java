@@ -5,8 +5,14 @@ import UberBackendDevApp.CabBookingAppBackend.dto.DriverDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
+import UberBackendDevApp.CabBookingAppBackend.entities.enums.RideRequestStatus;
+import UberBackendDevApp.CabBookingAppBackend.repositories.RideRequestRepo;
+import UberBackendDevApp.CabBookingAppBackend.repositories.RiderRepo;
 import UberBackendDevApp.CabBookingAppBackend.services.RiderService;
+import UberBackendDevApp.CabBookingAppBackend.strategies.DriverMatchingStrategy;
+import UberBackendDevApp.CabBookingAppBackend.strategies.RideFareCalculationStrategy;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,16 +24,28 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RiderServiceImpl implements RiderService {
 
-    private final MapperConfig mapperConfig;
+    private final ModelMapper modelMapper;
+    private final RideFareCalculationStrategy rideFareCalculationStrategy;
+    private final DriverMatchingStrategy driverMatchingStrategy;
+    private final RideRequestRepo rideRequestRepository;
+    private final RiderRepo riderRepository;
+
 
     private static final Logger log = LoggerFactory.getLogger(RiderServiceImpl.class);
 
     @Override
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {
-        System.out.println("Dta received: "+ rideRequestDto);
-        RideRequest rideRequest = mapperConfig.modelMapper().map(rideRequestDto, RideRequest.class);
-        log.info(rideRequest.toString());
-        return null;
+        RideRequest rideRequest = modelMapper.map(rideRequestDto, RideRequest.class);
+        rideRequest.setRideRequestStatus(RideRequestStatus.PENDING);
+
+        Double fare = rideFareCalculationStrategy.calculateFare(rideRequest);
+        rideRequest.setFare(fare);
+
+        RideRequest savedRideRequest = rideRequestRepository.save(rideRequest);
+
+        driverMatchingStrategy.findMatchingDrivers(rideRequest);
+
+        return modelMapper.map(savedRideRequest, RideRequestDto.class);
     }
 
     @Override

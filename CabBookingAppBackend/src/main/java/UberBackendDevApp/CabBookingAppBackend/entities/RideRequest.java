@@ -38,6 +38,7 @@ public class RideRequest {
     private RideRequestStatus rideRequestStatus;
 
 
+    private Double fare;
 
 
 

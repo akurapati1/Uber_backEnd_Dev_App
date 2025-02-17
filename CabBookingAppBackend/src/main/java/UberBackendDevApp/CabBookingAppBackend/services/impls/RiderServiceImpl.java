@@ -1,10 +1,12 @@
 package UberBackendDevApp.CabBookingAppBackend.services.impls;
 
-import UberBackendDevApp.CabBookingAppBackend.configs.MapperConfig;
 import UberBackendDevApp.CabBookingAppBackend.dto.DriverDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
+import UberBackendDevApp.CabBookingAppBackend.dto.RiderDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
+import UberBackendDevApp.CabBookingAppBackend.entities.Rider;
+import UberBackendDevApp.CabBookingAppBackend.entities.User;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.RideRequestStatus;
 import UberBackendDevApp.CabBookingAppBackend.repositories.RideRequestRepo;
 import UberBackendDevApp.CabBookingAppBackend.repositories.RiderRepo;
@@ -12,9 +14,8 @@ import UberBackendDevApp.CabBookingAppBackend.services.RiderService;
 import UberBackendDevApp.CabBookingAppBackend.strategies.DriverMatchingStrategy;
 import UberBackendDevApp.CabBookingAppBackend.strategies.RideFareCalculationStrategy;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RiderServiceImpl implements RiderService {
 
     private final ModelMapper modelMapper;
@@ -29,9 +31,6 @@ public class RiderServiceImpl implements RiderService {
     private final DriverMatchingStrategy driverMatchingStrategy;
     private final RideRequestRepo rideRequestRepository;
     private final RiderRepo riderRepository;
-
-
-    private static final Logger log = LoggerFactory.getLogger(RiderServiceImpl.class);
 
     @Override
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {
@@ -59,12 +58,22 @@ public class RiderServiceImpl implements RiderService {
     }
 
     @Override
-    public DriverDto getMyProfile() {
+    public RiderDto getMyProfile() {
         return null;
     }
 
     @Override
     public List<RideDto> getAllMyRides() {
         return List.of();
+    }
+
+    @Override
+    public Rider createNewRider(User user) {
+        Rider rider = Rider
+                .builder()
+                .user(user)
+                .rating(0.0)
+                .build();
+        return riderRepository.save(rider);
     }
 }

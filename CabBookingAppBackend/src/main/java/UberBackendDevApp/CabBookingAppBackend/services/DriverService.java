@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface DriverService {
 
+    RideDto acceptRide(Long rideId);
+
     RideDto cancelRide(Long rideId);
 
     RideDto startRide(Long rideId);

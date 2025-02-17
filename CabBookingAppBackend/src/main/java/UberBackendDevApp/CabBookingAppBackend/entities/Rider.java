@@ -1,12 +1,14 @@
 package UberBackendDevApp.CabBookingAppBackend.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Entity
 @Getter
 @Setter
-@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Rider {
 
     @Id
@@ -14,10 +16,9 @@ public class Rider {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     private Double rating;
-
-
-
 }
+

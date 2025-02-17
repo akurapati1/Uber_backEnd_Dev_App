@@ -9,6 +9,11 @@ import java.util.List;
 
 public class DriverServiceImpl implements DriverService {
     @Override
+    public RideDto acceptRide(Long rideId) {
+        return null;
+    }
+
+    @Override
     public RideDto cancelRide(Long rideId) {
         return null;
     }

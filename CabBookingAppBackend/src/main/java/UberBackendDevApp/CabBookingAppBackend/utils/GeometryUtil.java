@@ -15,7 +15,8 @@ public class GeometryUtil {
         GeometryFactory geometryFactory = new GeometryFactory(new PrecisionModel(), 4326);
 
         Coordinate coordinate = new Coordinate(pointDto.getCoordinates()[0],
-                pointDto.getCoordinates()[1]);
+                pointDto.getCoordinates()[1]
+                );
 
         return geometryFactory.createPoint(coordinate);
 

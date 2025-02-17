@@ -27,12 +27,11 @@ public class Ride {
     @ManyToOne(fetch = FetchType.LAZY)
     private Rider rider;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
 
-
     @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentmethod;
+    private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
     private RideStatus rideStatus;
@@ -40,9 +39,7 @@ public class Ride {
     private String otp;
 
     private Double fare;
-
     private LocalDateTime startedAt;
-
     private LocalDateTime endedAt;
 
 

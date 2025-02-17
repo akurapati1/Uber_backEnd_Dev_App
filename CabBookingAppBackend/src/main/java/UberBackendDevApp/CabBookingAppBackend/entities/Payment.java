@@ -3,6 +3,9 @@ package UberBackendDevApp.CabBookingAppBackend.entities;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentMethod;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Payment {
@@ -14,12 +17,16 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-    private Double amount;
     @OneToOne(fetch = FetchType.LAZY)
     private Ride ride;
 
+    private Double amount;
+
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+
+    @CreationTimestamp
+    private LocalDateTime paymentTime;
 
 
 }

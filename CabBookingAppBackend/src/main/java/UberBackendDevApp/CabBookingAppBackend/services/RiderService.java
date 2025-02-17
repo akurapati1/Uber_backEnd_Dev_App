@@ -4,6 +4,8 @@ import UberBackendDevApp.CabBookingAppBackend.dto.DriverDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RiderDto;
+import UberBackendDevApp.CabBookingAppBackend.entities.Rider;
+import UberBackendDevApp.CabBookingAppBackend.entities.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,4 +22,6 @@ public interface RiderService {
     DriverDto getMyProfile();
 
     List<RideDto> getAllMyRides();
+
+    Rider createNewRider(User user);
 }

@@ -3,12 +3,22 @@ package UberBackendDevApp.CabBookingAppBackend.entities;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.TransactionMethod;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.TransactionType;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class WalletTransactions {
+@Builder
+@Table(indexes = {
+        @Index(name = "idx_wallet_transaction_wallet", columnList = "wallet_id"),
+        @Index(name = "idx_wallet_transaction_ride", columnList = "ride_id")
+})
+public class WalletTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +30,7 @@ public class WalletTransactions {
 
     private TransactionMethod transactionMethod;
 
-    @OneToOne
+    @ManyToOne
     private Ride ride;
 
     private String transactionId;
@@ -30,6 +40,4 @@ public class WalletTransactions {
 
     @CreationTimestamp
     private LocalDateTime timeStamp;
-
-
 }

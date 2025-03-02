@@ -3,12 +3,24 @@ package UberBackendDevApp.CabBookingAppBackend.entities;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentMethod;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.RideStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(indexes = {
+        @Index(name = "idx_ride_rider", columnList = "rider_id"),
+        @Index(name = "idx_ride_driver", columnList = "driver_id")
+})
 public class Ride {
 
     @Id
@@ -41,7 +53,5 @@ public class Ride {
     private Double fare;
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
-
-
 
 }

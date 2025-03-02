@@ -8,8 +8,8 @@ import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
 import UberBackendDevApp.CabBookingAppBackend.entities.Rider;
 import UberBackendDevApp.CabBookingAppBackend.entities.User;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.RideRequestStatus;
-import UberBackendDevApp.CabBookingAppBackend.repositories.RideRequestRepo;
-import UberBackendDevApp.CabBookingAppBackend.repositories.RiderRepo;
+import UberBackendDevApp.CabBookingAppBackend.repositories.RideRequestRepository;
+import UberBackendDevApp.CabBookingAppBackend.repositories.RiderRepository;
 import UberBackendDevApp.CabBookingAppBackend.services.RiderService;
 import UberBackendDevApp.CabBookingAppBackend.strategies.DriverMatchingStrategy;
 import UberBackendDevApp.CabBookingAppBackend.strategies.RideFareCalculationStrategy;
@@ -29,8 +29,8 @@ public class RiderServiceImpl implements RiderService {
     private final ModelMapper modelMapper;
     private final RideFareCalculationStrategy rideFareCalculationStrategy;
     private final DriverMatchingStrategy driverMatchingStrategy;
-    private final RideRequestRepo rideRequestRepository;
-    private final RiderRepo riderRepository;
+    private final RideRequestRepository rideRequestRepository;
+    private final RiderRepository riderRepository;
 
     @Override
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {

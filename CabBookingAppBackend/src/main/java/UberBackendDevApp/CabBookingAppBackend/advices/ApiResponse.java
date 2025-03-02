@@ -1,4 +1,4 @@
-package UberBackendDevApp.CabBookingAppBackend.adivices;
+package UberBackendDevApp.CabBookingAppBackend.advices;
 
 import lombok.Data;
 

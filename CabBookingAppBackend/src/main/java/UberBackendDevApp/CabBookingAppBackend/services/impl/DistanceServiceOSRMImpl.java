@@ -1,4 +1,4 @@
-package UberBackendDevApp.CabBookingAppBackend.services.impls;
+package UberBackendDevApp.CabBookingAppBackend.services.impl;
 
 import UberBackendDevApp.CabBookingAppBackend.services.DistanceService;
 import org.locationtech.jts.geom.Point;

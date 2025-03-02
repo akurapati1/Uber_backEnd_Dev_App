@@ -1,7 +1,7 @@
-package UberBackendDevApp.CabBookingAppBackend.controllers;
+package com.codingshuttle.project.uber.uberApp.controllers;
 
-import UberBackendDevApp.CabBookingAppBackend.dto.*;
-import UberBackendDevApp.CabBookingAppBackend.services.RiderService;
+import com.codingshuttle.project.uber.uberApp.dto.*;
+import com.codingshuttle.project.uber.uberApp.services.RiderService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -6,10 +6,10 @@ import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.dto.RiderDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.Rider;
 import UberBackendDevApp.CabBookingAppBackend.entities.User;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
-
 
 public interface RiderService {
 
@@ -19,9 +19,11 @@ public interface RiderService {
 
     DriverDto rateDriver(Long rideId, Integer rating);
 
-    DriverDto getMyProfile();
+    RiderDto getMyProfile();
 
-    List<RideDto> getAllMyRides();
+    Page<RideDto> getAllMyRides(PageRequest pageRequest);
 
     Rider createNewRider(User user);
+
+    Rider getCurrentRider();
 }

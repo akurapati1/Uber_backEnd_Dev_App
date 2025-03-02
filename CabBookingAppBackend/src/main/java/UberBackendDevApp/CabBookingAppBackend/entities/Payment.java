@@ -3,13 +3,18 @@ package UberBackendDevApp.CabBookingAppBackend.entities;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentMethod;
 import UberBackendDevApp.CabBookingAppBackend.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +32,5 @@ public class Payment {
 
     @CreationTimestamp
     private LocalDateTime paymentTime;
-
-
 }
+;

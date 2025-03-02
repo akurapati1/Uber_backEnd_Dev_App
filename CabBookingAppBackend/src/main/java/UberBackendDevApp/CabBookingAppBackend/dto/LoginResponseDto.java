@@ -5,11 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class RiderDto {
-
-    private Long id;
-    private UserDto user;
-    private Double rating;
+@NoArgsConstructor
+public class LoginResponseDto {
+    private String accessToken;
 }

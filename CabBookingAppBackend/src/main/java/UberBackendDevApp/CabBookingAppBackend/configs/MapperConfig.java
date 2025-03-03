@@ -1,7 +1,6 @@
 package UberBackendDevApp.CabBookingAppBackend.configs;
 
 import UberBackendDevApp.CabBookingAppBackend.dto.PointDto;
-import UberBackendDevApp.CabBookingAppBackend.utils.GeometryUtil;
 import org.locationtech.jts.geom.Point;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

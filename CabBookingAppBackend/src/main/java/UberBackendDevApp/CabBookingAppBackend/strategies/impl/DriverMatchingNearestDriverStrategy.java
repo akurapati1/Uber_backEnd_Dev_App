@@ -1,4 +1,4 @@
-package UberBackendDevApp.CabBookingAppBackend.strategies.impls;
+package UberBackendDevApp.CabBookingAppBackend.strategies.impl;
 
 import UberBackendDevApp.CabBookingAppBackend.entities.Driver;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;

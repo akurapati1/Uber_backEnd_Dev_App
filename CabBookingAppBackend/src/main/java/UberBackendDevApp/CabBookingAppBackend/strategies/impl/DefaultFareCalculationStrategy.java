@@ -1,11 +1,9 @@
-package UberBackendDevApp.CabBookingAppBackend.strategies.impls;
+package UberBackendDevApp.CabBookingAppBackend.strategies.impl;
 
-import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
 import UberBackendDevApp.CabBookingAppBackend.services.DistanceService;
 import UberBackendDevApp.CabBookingAppBackend.strategies.RideFareCalculationStrategy;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor

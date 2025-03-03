@@ -1,6 +1,5 @@
-package UberBackendDevApp.CabBookingAppBackend.strategies.impls;
+package UberBackendDevApp.CabBookingAppBackend.strategies.impl;
 
-import UberBackendDevApp.CabBookingAppBackend.dto.RideRequestDto;
 import UberBackendDevApp.CabBookingAppBackend.entities.RideRequest;
 import UberBackendDevApp.CabBookingAppBackend.strategies.RideFareCalculationStrategy;
 
